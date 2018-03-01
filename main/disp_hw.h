@@ -3,13 +3,13 @@
 #include <stdint.h>
 
 /**
-* This function configures the SPI bus and pins for: reset, chip select, data/command, busy signals.
+* Configures the SPI bus and pins for: reset, chip select, data/command, busy signals.
 * It pulls reset low for 200ms, pulls high and waits 200ms. This function is blocking.
 */
 void disp_hw_init(void);
 
 /**
-* This function disables the peripherals connected to the display,
+* Disables the peripherals connected to the display,
 * disconnects power to the display etc. It is optional.
 */
 void disp_hw_deinit(void);
@@ -33,7 +33,7 @@ void disp_hw_cs_high(void);
 
 /**
  * Polls the BUSY signal from the display. This function is blocking.
- * It can either user polling or configure the GPIO for interrupt sensing.
+ * It can either use polling or configure the GPIO for interrupt sensing.
  * This function should also enter sleep mode while waiting for reduced power consumption.
  */
 void disp_hw_busy_wait(void);
