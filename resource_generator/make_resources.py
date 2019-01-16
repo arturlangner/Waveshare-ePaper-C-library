@@ -68,7 +68,7 @@ def make_font_description(file_path):
     output_data += 'static const glyph_t FONT_GLYPHS_%s[] = {\n' % name
     counter = 0
     for g in input_description['symbols']:
-        output_data += '{ .character=%d/*%c*/, .width=%d, .x_offset=%d },\n' % (g['id'], chr(g['id']), g['width'], g['x'])
+        output_data += '{ .character=%d/*%c*/, .width=%d, .x_offset=%d },\n' % (g['id'], unichr(g['id']), g['width'], g['x'])
         counter += 1
     output_data += '};\n\n'
 
@@ -111,4 +111,4 @@ for file_name in os.listdir(source_path):
         header, data = make_font_description(file_path)
         print header
         output_h_file.write(header)
-        output_c_file.write(data)
+        output_c_file.write(data.encode('utf8'))
